@@ -71,3 +71,52 @@ print(spy_game([]))
 print(spy_game([6, 3, 1, 0, 0, 7, 4, 8, 3, 1, 3, 2]))
 print(spy_game([6, 0, 108, 0, 999, 69, 7, 4, 8, 3, 1, 3, 2]))
 print(spy_game([6, 0, 108, 0, 999, 69, 171, 4, 8, 3, 1, 3, 2]))
+
+
+list_of_ints = [1, 2, 3, 4, 5, 6, 7, 8]
+
+# Example of built-in 'map()' function
+def square_an_int(i):
+    return i ** 2
+list_of_squared_ints = list(map(square_an_int, list_of_ints))
+print(list_of_squared_ints)
+
+# Example of built-in 'filter()' function
+def is_even(i):
+    return i % 2 == 0
+list_of_even_ints = list(filter(is_even, list_of_ints))
+print(list_of_even_ints)
+
+# Implement both of the above with lambda expressions
+list_of_squared_ints_b = list(map(lambda i:i**2, list_of_ints))
+list_of_even_ints_b = list(filter(lambda i:i%2==0, list_of_ints))
+print(list_of_squared_ints_b)
+print(list_of_even_ints_b)
+
+
+# -------------------------------------------------------------------------------------------------
+# Playing around with variable scopes
+# -------------------------------------------------------------------------------------------------
+xxx = 100
+yyy = 200
+
+def local_reassignment():
+    xxx = 111
+    yyy = 222
+    print('locally reassigned values | xxx: {} | yyy: {}'.format(xxx, yyy))
+
+local_reassignment()
+print(xxx)
+print(yyy)
+
+def global_reassignment():
+    # explicitly declare that we are locally referencing global variable 'xxx' and not creating a new local 'xxx'
+    global xxx
+    xxx = 111
+    yyy = 222
+    print('reassigned value | xxx: {} '.format(xxx))
+
+global_reassignment()
+print(xxx)
+print(yyy)
+# -------------------------------------------------------------------------------------------------
