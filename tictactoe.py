@@ -2,11 +2,9 @@ EMPTY = " "
 
 
 def display_board(board):
-    print(' {} | {} | {} '.format(board[7], board[8], board[9]))
-    print('---+---+---')
-    print(' {} | {} | {} '.format(board[4], board[5], board[6]))
-    print('---+---+---')
-    print(' {} | {} | {} '.format(board[1], board[2], board[3]))
+    print('{}|{}|{}'.format(board[7], board[8], board[9]))
+    print('{}|{}|{}'.format(board[4], board[5], board[6]))
+    print('{}|{}|{}'.format(board[1], board[2], board[3]))
 
 
 def player_input():
@@ -44,17 +42,15 @@ def win_check(board, mark):
     :param mark: string
     :return: boolean
     """
-    if board[7] == mark and board[8] == mark and board[9] == mark:
-        return True
-    elif board[4] == mark and board[5] == mark and board[6] == mark:
-        return True
-    elif board[1] == mark and board[2] == mark and board[3] == mark:
-        return True
-    elif board[7] == mark and board[5] == mark and board[3] == mark:
-        return True
-    elif board[1] == mark and board[5] == mark and board[9] == mark:
-        return True
-    return False
+
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or  # across the top
+            (board[4] == mark and board[5] == mark and board[6] == mark) or  # across the center
+            (board[1] == mark and board[2] == mark and board[3] == mark) or  # across the bottom
+            (board[7] == mark and board[5] == mark and board[3] == mark) or  # diagonal A
+            (board[1] == mark and board[5] == mark and board[9] == mark) or  # diagonal B
+            (board[7] == mark and board[4] == mark and board[1] == mark) or  # down left column
+            (board[8] == mark and board[5] == mark and board[2] == mark) or  # down center column
+            (board[9] == mark and board[6] == mark and board[3] == mark))  # down right column
 
 
 # This is dumb. I'm skipping this feature. I know how to use a random number generator! Player 1 will always go first.
@@ -84,9 +80,9 @@ def full_board_check(board):
     :param board:
     :return:
     """
-    return board[1] != EMPTY and board[2] != EMPTY and board[3] != EMPTY and \
-        board[4] != EMPTY and board[5] != EMPTY and board[6] != EMPTY and \
-        board[7] != EMPTY and board[8] != EMPTY and board[9] != EMPTY
+    if EMPTY in board[1:]:
+        return False
+    return True
 
 
 def player_choice(board):
