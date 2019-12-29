@@ -1,0 +1,17 @@
+
+The 'pip' utility is included in some Python distributions, such as Anaconda. Can also be installed separately.
+Used to download and install third-party Python libraries.
+
+EXAMPLE - installing the third-party 'requests' library:
+pip install requests
+
+EXAMPLE - installing the third-party 'colorama' library:
+pip install colorama
+
+EXAMPLE - installing the third-party 'openpyxl' library (for working with Excel 2010 workbook files):
+pip install openpyxl
+
+API docs for each third-party library is usually found online. Just Google for it.
+EXAMPLE - docs for 'openpyxl':
+https://openpyxl.readthedocs.io/en/stable/
+
